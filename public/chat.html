@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nasihat</title>
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <input
+          type="text"
+          id="add-user-input"
+          placeholder="Kişi eklemek için takma adını yazın..."
+        />
+        <ul id="user-list"></ul>
+      </aside>
+
+      <main class="chat-area">
+        <header class="chat-header">
+          <span id="chat-with">Kişi seçin</span>
+          <button
+            id="logout-button"
+            style="
+              position: fixed;
+              top: 1em;
+              right: 1em;
+              padding: 5px 10px;
+              background-color: #fff;
+              color: #000;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 14px;
+            "
+          >
+            Çıkış Yap
+          </button>
+        </header>
+        <div class="chat-messages" id="chat-messages"></div>
+        <form id="message-form">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Yazın..."
+            autocomplete="off"
+          />
+          <button type="submit">Gönder</button>
+        </form>
+      </main>
+    </div>
+    <script src="chat.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

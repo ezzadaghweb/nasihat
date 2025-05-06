@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Yeni Hesap Oluştur</h2>
+      <form id="register-form" class="form">
+        <input type="text" name="nickname" placeholder="Takma Ad" required />
+        <input type="password" name="password" placeholder="Şifre" required />
+        <button type="submit">Kayıt Ol</button>
+      </form>
+      <p class="link">
+        <a href="giris">Zaten hesabıniz var mı? Giriş Yapın</a>
+      </p>
+    </div>
+
+    <script>
+      document.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("focus", () => {
+          input.style.borderColor = "#00c6ff";
+        });
+        input.addEventListener("blur", () => {
+          input.style.borderColor = "#ccc";
+        });
+      });
+    </script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

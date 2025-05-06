@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Hoş sefa geldiniz</h2>
+      <form id="auth-form" class="form">
+        <input type="text" id="nickname" placeholder="Takma ad" required />
+        <input type="password" id="password" placeholder="Şifre" required />
+        <button type="submit">Girin</button>
+      </form>
+      <div class="link">
+        <a href="kayit">Hesabınız mı yok? Kayıt açın</a>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
