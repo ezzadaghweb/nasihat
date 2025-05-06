@@ -46,10 +46,10 @@ io.on("connection", (socket) => {
   // Giriş işlemi
   socket.on("auth_request", ({ nickname, password }) => {
     User.loginUser(nickname, password).then((user) => {
-      if (!user) {
+      if (!user.success) {
         socket.emit("auth_response", {
           success: false,
-          message: "Giriş başarısız",
+          message: user.message,
         });
         return;
       }
@@ -64,10 +64,10 @@ io.on("connection", (socket) => {
   // Kayıt işlemi
   socket.on("register_request", ({ nickname, password }) => {
     User.registerUser(nickname, password).then((user) => {
-      if (!user) {
+      if (!user.success) {
         socket.emit("register_response", {
           success: false,
-          message: "Kayıt başarısız",
+          message: user.message,
         });
         return;
       }

@@ -62,7 +62,7 @@ function initLogin() {
     socket.emit("auth_request", { nickname, password });
 
     socket.once("auth_response", (res) => {
-      if (res.success) {
+      if (res.success === true) {
         localStorage.setItem("user", nickname);
         location.href = "/nasihat";
       } else {

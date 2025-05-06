@@ -24,7 +24,11 @@ const registerUser = async (nickname, password) => {
   try {
     const existingUser = await findUser({ nickname });
     if (existingUser) {
-      return { success: false, message: "Nickname already exists." };
+      return {
+        success: false,
+        message:
+          "Yazdığınız takma ad halihazırda başkası tarafından kullanılıyor",
+      };
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -32,8 +36,8 @@ const registerUser = async (nickname, password) => {
 
     return { success: true, user: { nickname: newUser.nickname } };
   } catch (err) {
-    console.error("registerUser error:", err);
-    return { success: false, message: "Internal error." };
+    console.error("Kayıt hatası:", err);
+    return { success: false, message: "Sunucu hatası." };
   }
 };
 
@@ -41,18 +45,18 @@ const loginUser = async (nickname, password) => {
   try {
     const user = await findUser({ nickname });
     if (!user) {
-      return { success: false, message: "User not found." };
+      return { success: false, message: "Takma ad yanlış." };
     }
 
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
-      return { success: false, message: "Incorrect password." };
+      return { success: false, message: "Şifre yanlış." };
     }
 
     return { success: true, user: { nickname: user.nickname } };
   } catch (err) {
     console.error("loginUser error:", err);
-    return { success: false, message: "Internal error." };
+    return { success: false, message: "Suncu hatası." };
   }
 };
 
