@@ -14,10 +14,13 @@ const io = new Server(sunucu, {
 
 // Public klasörünü sun
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "db")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+app.get("/db", (req, res) => {
+  res.sendFile(path.join(__dirname, "db", "users.db"));
 });
 
 app.get("/giris", (req, res) => {
