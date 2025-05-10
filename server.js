@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/db", (req, res) => {
-  res.sendFile(path.join(__dirname, "db", "users.db"));
+  res.sendFile(path.join(__dirname, "db", "messages.db"));
 });
 
 app.get("/giris", (req, res) => {
